@@ -1,13 +1,32 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 public class Sandbox {
-
-    String[] arrayOfStrings = {"Matti L.", "Matti P.", "Matti V."};
-    double[] arrayOfFloatingpoints = {1.20, 3.14, 100.0, 0.6666666667};
-    int i = 0;
-    while(i < arrayOfFloatingpoints.length){
-        System.out.println(arrayOfStrings[i] + " " +  arrayOfFloatingpoints[i]);
-        i++;
+    public static void main(String[] args) {
+        
+        
+        String input = "one\n" + "two\n"  +
+                "three\n" + "four\n" +
+                "five\n" + "one\n"  +
+                "six\n";
+        
+        Scanner reader = new Scanner(input);
+        
+        ArrayList<String> read = new ArrayList<>();
+        while (true) {
+            System.out.println("Enter an input: ");
+            String line = reader.nextLine();
+            if (read.contains(line)) {
+                break;
+            }
+            
+            read.add(line);
+        }
+        System.out.println(read);
+        
+        System.out.println("Thank you!");
+        
+        if (read.contains("six")) {
+            System.out.println("A value that should not have been added to the group was added to it.");
+        }
     }
-    
 }
